@@ -37,7 +37,7 @@
                         </div>
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-primary btn-lg">Login</button>
-                            <a href="{{ route('register') }}" class="btn btn-outline-secondary">Need an account? Register</a>
+{{--                            <a href="{{ route('register') }}" class="btn btn-outline-secondary">Need an account? Register</a>--}}
                         </div>
                     </form>
                 </div>
