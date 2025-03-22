@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,4 +28,35 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 Route::get('/', function () {
     return redirect()->route('login');
+});
+
+
+Route::group(['prefix' => 'warehouse', 'middleware' => ['auth'],'as' => 'warehouse.'], function () {
+    // Get all warehouses
+    Route::get('/', [WarehouseController::class, 'index'])
+        ->name('index');
+
+    // Show create warehouse form
+    Route::get('/create', [WarehouseController::class, 'create'])
+        ->name('create');
+
+    // Store new warehouse
+    Route::post('/', [WarehouseController::class, 'store'])
+        ->name('store');
+
+    // Show specific warehouse
+    Route::get('/{warehouse}', [WarehouseController::class, 'show'])
+        ->name('show');
+
+    // Show edit warehouse form
+    Route::get('/{warehouse}/edit', [WarehouseController::class, 'edit'])
+        ->name('edit');
+
+    // Update warehouse
+    Route::put('/{id}', [WarehouseController::class, 'update'])
+        ->name('update');
+
+    // Delete warehouse
+    Route::delete('/{warehouse}', [WarehouseController::class, 'destroy'])
+        ->name('destroy');
 });

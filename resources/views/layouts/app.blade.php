@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'FIN IDEALMETER') }}</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -18,7 +18,6 @@
     @auth
         @include('layouts.sidebar')
     @endauth
-
     <main class="flex-grow-1 p-4">
         @yield('content')
     </main>
