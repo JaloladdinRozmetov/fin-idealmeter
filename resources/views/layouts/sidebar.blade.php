@@ -18,6 +18,12 @@
                 Omborxona
             </a>
         </li>
+        <li>
+            <a href="{{ route('product.index') }}" class="nav-link {{ Request::routeIs('product.index') ? 'active' : '' }}">
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#gear"></use></svg>
+                Tovarlar
+            </a>
+        </li>
     </ul>
     <hr>
     <div class="dropdown"></div>
