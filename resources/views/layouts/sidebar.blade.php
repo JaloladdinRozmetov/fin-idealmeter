@@ -24,6 +24,12 @@
                 Tovarlar
             </a>
         </li>
+        <li>
+            <a href="{{ route('purchases.index') }}" class="nav-link {{ Request::routeIs('purchases.index') ? 'active' : '' }}">
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#gear"></use></svg>
+                Xaridlar
+            </a>
+        </li>
     </ul>
     <hr>
     <div class="dropdown"></div>

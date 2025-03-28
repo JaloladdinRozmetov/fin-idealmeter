@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
@@ -49,7 +50,7 @@ Route::group(['prefix' => 'warehouse', 'middleware' => ['auth'],'as' => 'warehou
         ->name('destroy');
 });
 
-Route::prefix('products')->name('product.')->group(function () {
+Route::group(['prefix' => 'products', 'middleware' => ['auth'],'as' => 'product.'],function () {
     Route::get('/', [ProductController::class, 'index'])
         ->name('index');
     Route::get('/create', [ProductController::class, 'create'])
@@ -65,5 +66,24 @@ Route::prefix('products')->name('product.')->group(function () {
     Route::delete('{product}', [ProductController::class, 'destroy'])
         ->name('destroy');
     Route::patch('{id}/restore', [ProductController::class, 'restore'])
+        ->name('restore');
+});
+
+Route::prefix('purchases')->middleware('auth')->name('purchases.')->group(function () {
+    Route::get('/', [PurchaseController::class, 'index'])
+        ->name('index');
+    Route::get('/create', [PurchaseController::class, 'create'])
+        ->name('create');
+    Route::get('/edit/{purchase}', [PurchaseController::class, 'edit'])
+        ->name('edit');
+    Route::post('/', [PurchaseController::class, 'store'])
+        ->name('store');
+    Route::get('{purchase}', [PurchaseController::class, 'show'])
+        ->name('show');
+    Route::put('{purchase}', [PurchaseController::class, 'update'])
+        ->name('update');
+    Route::delete('{purchase}', [PurchaseController::class, 'destroy'])
+        ->name('destroy');
+    Route::patch('{id}/restore', [PurchaseController::class, 'restore'])
         ->name('restore');
 });
