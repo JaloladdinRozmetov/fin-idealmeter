@@ -7,25 +7,25 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="{{ route('dashboard') }}" class="nav-link {{ Request::routeIs('dashboard') ? 'active' : '' }}" aria-current="page">
+            <a href="{{ route('dashboard') }}" class="nav-link {{ Request::is('dashboard*') ? 'active' : '' }}" aria-current="page">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
                 Asosiy
             </a>
         </li>
         <li>
-            <a href="{{ route('warehouse.index') }}" class="nav-link {{ Request::routeIs('warehouse.index') ? 'active' : '' }}">
+            <a href="{{ route('warehouse.index') }}" class="nav-link {{ Request::is('warehouse*') ? 'active' : '' }}">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#gear"></use></svg>
                 Omborxona
             </a>
         </li>
         <li>
-            <a href="{{ route('product.index') }}" class="nav-link {{ Request::routeIs('product.index') ? 'active' : '' }}">
+            <a href="{{ route('product.index') }}" class="nav-link {{ Request::is('product*') ? 'active' : '' }}">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#gear"></use></svg>
                 Tovarlar
             </a>
         </li>
         <li>
-            <a href="{{ route('purchases.index') }}" class="nav-link {{ Request::routeIs('purchases.index') ? 'active' : '' }}">
+            <a href="{{ route('purchases.index') }}" class="nav-link {{ Request::is('purchases*') ? 'active' : '' }}">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#gear"></use></svg>
                 Xaridlar
             </a>
