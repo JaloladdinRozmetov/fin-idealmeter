@@ -18,9 +18,10 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label fw-bold">Mahsulot:</label>
+                                <label class="form-label fw-bold">Tovar:</label>
+                                <a href="{{route('product.create')}}" class="btn btn-success m-1">&#43;</a>
                                 <select name="product_id" class="form-control" required>
-                                    <option value="">Mahsulot tanlang</option>
+                                    <option value="">Tovar tanlang</option>
                                     @foreach($products as $product)
                                         <option value="{{ $product->id }}">{{ $product->product_name }}</option>
                                     @endforeach

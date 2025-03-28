@@ -53,7 +53,7 @@ class PurchaseController extends Controller
      */
     public function store(PurchaseRequest $request)
     {
-        $this->purchaseService->store($request->validated());
+        $this->purchaseService->createPurchase($request->validated());
 
         return redirect()->route('warehouse.show', $request->warehouse_id)
             ->with('success', 'Xarid muvaffaqiyatli qo\'shildi.');

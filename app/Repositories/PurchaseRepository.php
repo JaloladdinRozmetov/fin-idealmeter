@@ -28,7 +28,7 @@ class PurchaseRepository
     public function create(array $data)
     {
         $data['entire_price_all'] = $data['quantity'] * $data['entire_price_per'];
-        return Purchase::create($data);
+        return Purchase::query()->create($data);
     }
 
     /**
