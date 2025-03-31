@@ -35,6 +35,16 @@ class PurchaseService
      */
     public function createPurchase(array $data)
     {
+        if ($data['currency'] == 'USD')
+        {
+            $data['entire_price_all'] = $data['quantity'] * $data['uzs_price'];
+            $data ['entire_price_per'] = $data['uzs_price'];
+
+        }else {
+            $data['entire_price_all'] = $data['quantity'] * $data['entire_price_per'];
+        }
+        $data ['currency'] = 'UZS';
+
         return $this->purchaseRepository->create($data);
     }
 
@@ -43,6 +53,16 @@ class PurchaseService
      */
     public function updatePurchase(int $id, array $data)
     {
+        if ($data['currency'] == 'USD')
+        {
+            $data['entire_price_all'] = $data['quantity'] * $data['uzs_price'];
+            $data ['entire_price_per'] = $data['uzs_price'];
+
+        }else {
+            $data['entire_price_all'] = $data['quantity'] * $data['entire_price_per'];
+        }
+        $data ['currency'] = 'UZS';
+
         return $this->purchaseRepository->update($id, $data);
     }
 
@@ -52,5 +72,10 @@ class PurchaseService
     public function deletePurchase(int $id)
     {
         return $this->purchaseRepository->delete($id);
+    }
+
+    public function getPurchaseWithOneById(int $id,string $field)
+    {
+        return $this->purchaseRepository->getPurchaseWithOne($id,$field);
     }
 }

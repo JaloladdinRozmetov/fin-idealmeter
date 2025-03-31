@@ -26,8 +26,6 @@ class ProductRequest extends FormRequest
                 'product_name'  => 'required|string|max:255',
                 'type'          => 'required|string|max:255',
                 'producer'      => 'nullable|string|max:255',
-                'dealer_price'  => 'required|numeric|min:0',
-                'sale_price'    => 'required|numeric|min:0',
                 'barcode'       => [
                     'required',
                     'string',
@@ -39,8 +37,6 @@ class ProductRequest extends FormRequest
                 'product_name'  => 'required|string|max:255',
                 'type'          => 'required|string|max:255',
                 'producer'      => 'nullable|string|max:255',
-                'dealer_price'  => 'required|numeric|min:0',
-                'sale_price'    => 'required|numeric|min:0',
                 'barcode'       => [
                     'required',
                     'string',

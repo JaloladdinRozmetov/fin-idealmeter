@@ -58,4 +58,35 @@ class PurchaseController extends Controller
         return redirect()->route('warehouse.show', $request->warehouse_id)
             ->with('success', 'Xarid muvaffaqiyatli qo\'shildi.');
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($id)
+    {
+        $this->purchaseService->deletePurchase($id);
+
+        return redirect()->route('purchases.index')->with('success', "Xarid muvafaqilyatli o'chirldi!");
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
+     */
+    public function edit($id)
+    {
+        $purchase = $this->purchaseService->getPurchaseById($id);
+        $products = $this->productService->getAllProducts();
+        $warehouse = $this->warehouseService->getWarehouse($purchase->warehouse_id);
+
+        return view('purchases.edit', compact('purchase','products','warehouse'));
+    }
+
+    public function update(PurchaseRequest $request, $id)
+    {
+        $this->purchaseService->updatePurchase($id, $request->validated());
+
+        return redirect()->route('purchases.index')->with('success', "Xarid muvafaqiyatli o'zgartirildi!");
+    }
 }

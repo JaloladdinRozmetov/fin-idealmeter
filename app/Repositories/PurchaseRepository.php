@@ -27,7 +27,6 @@ class PurchaseRepository
      */
     public function create(array $data)
     {
-        $data['entire_price_all'] = $data['quantity'] * $data['entire_price_per'];
         return Purchase::query()->create($data);
     }
 
@@ -37,8 +36,8 @@ class PurchaseRepository
     public function update(int $id, array $data)
     {
         $purchase = $this->findById($id);
-        $data['entire_price_all'] = $data['quantity'] * $data['entire_price_per'];
         $purchase->update($data);
+
         return $purchase;
     }
 
@@ -49,5 +48,10 @@ class PurchaseRepository
     {
         $purchase = $this->findById($id);
         return $purchase->delete();
+    }
+
+    public function getPurchaseWithOne(int $id, string $attribute)
+    {
+        return Purchase::query()->with($attribute)->findOrFail($id);
     }
 }

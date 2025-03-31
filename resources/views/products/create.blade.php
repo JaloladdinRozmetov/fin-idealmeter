@@ -24,14 +24,6 @@
                                 <input type="text" name="producer" id="producer" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label for="dealer_price" class="form-label">Diler Narxi</label>
-                                <input type="number" name="dealer_price" id="dealer_price" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="sale_price" class="form-label">Sotuv Narxi</label>
-                                <input type="number" name="sale_price" id="sale_price" class="form-control" required>
-                            </div>
-                            <div class="mb-3">
                                 <label for="barcode" class="form-label">Shtrix Kod</label>
                                 <input type="text" name="barcode" id="barcode" class="form-control" required>
                             </div>

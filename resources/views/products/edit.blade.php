@@ -46,22 +46,6 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="dealer_price" class="form-label">Diler Narxi</label>
-                                <input type="number" name="dealer_price" id="dealer_price" class="form-control @error('dealer_price') is-invalid @enderror"
-                                       value="{{ old('dealer_price', $product->dealer_price) }}" required>
-                                @error('dealer_price')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="sale_price" class="form-label">Sotuv Narxi</label>
-                                <input type="number" name="sale_price" id="sale_price" class="form-control @error('sale_price') is-invalid @enderror"
-                                       value="{{ old('sale_price', $product->sale_price) }}" required>
-                                @error('sale_price')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
                                 <label for="barcode" class="form-label">Shtrix Kod</label>
                                 <input type="text" name="barcode" id="barcode" class="form-control @error('barcode') is-invalid @enderror"
                                        value="{{ old('barcode', $product->barcode) }}" required>

@@ -39,8 +39,6 @@
                     <th>Mahsulot nomi</th>
                     <th>Turi</th>
                     <th>Ishlab chiqaruvchi</th>
-                    <th>Diler narxi</th>
-                    <th>Sotuv narxi</th>
                     <th>Shtrix kod</th>
                     <th>Amallar</th>
                 </tr>
@@ -52,8 +50,6 @@
                         <td>{{ $product->product_name }}</td>
                         <td>{{ $product->type }}</td>
                         <td>{{ $product->producer }}</td>
-                        <td>{{ $product->dealer_price }} UZS</td>
-                        <td>{{ $product->sale_price }} UZS</td>
                         <td>{{ $product->barcode }}</td>
                         <td>
                             <a href="{{ route('product.edit', $product->id) }}" class="btn btn-sm btn-warning me-1">

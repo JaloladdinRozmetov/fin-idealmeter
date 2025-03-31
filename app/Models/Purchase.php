@@ -20,6 +20,7 @@ class Purchase extends Model
         'entire_price_per',
         'entire_price_all',
         'barcode',
+        'currency',
     ];
 
     /**

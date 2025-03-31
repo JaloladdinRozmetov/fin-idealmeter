@@ -28,6 +28,8 @@ class PurchaseRequest extends FormRequest
                 'product_id'        => 'required|exists:products,id',
                 'quantity'          => 'required|min:1',
                 'entire_price_per'  => 'required|numeric|min:0',
+                'uzs_price' => ['required_if:currency,USD','nullable', 'numeric', 'min:0'],
+                'currency'        => 'required|in:USD,UZS',
                 'barcode'           => [
                     'required',
                     'string',
@@ -46,6 +48,8 @@ class PurchaseRequest extends FormRequest
                 'product_id'        => 'required|exists:products,id',
                 'quantity'          => 'required|integer|min:1',
                 'entire_price_per'  => 'required|numeric|min:0',
+                'currency'        => 'required|in:USD,UZS',
+                'uzs_price' => ['required_if:currency,USD','nullable', 'numeric', 'min:0'],
                 'barcode'           => [
                     'required',
                     'string',
