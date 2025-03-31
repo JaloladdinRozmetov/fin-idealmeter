@@ -30,6 +30,13 @@
                 Xaridlar
             </a>
         </li>
+
+        <li>
+            <a href="{{ route('users.index') }}" class="nav-link {{ Request::is('users*') ? 'active' : '' }}">
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#gear"></use></svg>
+                Foydalanuvchilar
+            </a>
+        </li>
     </ul>
     <hr>
     <div class="dropdown"></div>
