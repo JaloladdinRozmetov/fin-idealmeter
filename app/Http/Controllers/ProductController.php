@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use App\Services\CategoryService;
 use App\Services\ProductService;
 use App\Services\WarehouseService;
 use Illuminate\Http\Request;
@@ -11,10 +12,12 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     protected ProductService $productService;
+    protected CategoryService $categoryService;
 
-    public function __construct(ProductService $productService)
+    public function __construct(ProductService $productService,CategoryService $categoryService)
     {
         $this->productService = $productService;
+        $this->categoryService = $categoryService;
     }
 
     /**
@@ -31,7 +34,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $categories = $this->categoryService->getAllCategories();
+        return view('products.create', compact('categories'));
     }
 
     /**
@@ -50,7 +54,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('products.edit', compact('product'));
+        $categories = $this->categoryService->getAllCategories();
+
+        return view('products.edit', compact('product','categories'));
     }
 
     /**

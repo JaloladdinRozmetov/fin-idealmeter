@@ -24,40 +24,32 @@
 
         <!-- Header -->
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2><i class="bi bi-box-seam"></i> Mahsulotlar</h2>
-            <a href="{{ route('product.create') }}" class="btn btn-primary">
+            <h2><i class="bi bi-folder"></i> Kategoriyalar</h2>
+            <a href="{{ route('categories.create') }}" class="btn btn-primary">
                 <i class="bi bi-plus"></i> Yangisini kiritish
             </a>
         </div>
 
-        <!-- Products Table -->
+        <!-- Categories Table -->
         <div class="table-responsive">
             <table class="table table-bordered table-striped">
-                <thead  style=" background-color: #007bff;">
+                <thead style="background-color: #007bff; color: white;">
                 <tr>
                     <th>#</th>
-                    <th>Mahsulot nomi</th>
-                    <th>Turi</th>
-                    <th>Ishlab chiqaruvchi</th>
-                    <th>Shtrix kod</th>
-                    <th>Kategory</th>
+                    <th>Kategoriya nomi</th>
                     <th>Amallar</th>
                 </tr>
                 </thead>
                 <tbody>
-                @forelse ($products as $index => $product)
+                @forelse ($categories as $index => $category)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td>{{ $product->product_name }}</td>
-                        <td>{{ $product->type }}</td>
-                        <td>{{ $product->producer }}</td>
-                        <td>{{ $product->barcode }}</td>
-                        <td>{{ $product->category->name ?? null}}</td>
+                        <td>{{ $category->name }}</td>
                         <td>
-                            <a href="{{ route('product.edit', $product->id) }}" class="btn btn-sm btn-warning me-1">
+                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-warning me-1">
                                 <i class="bi bi-pencil"></i>
                             </a>
-                            <form action="{{ route('product.destroy', $product->id) }}" method="POST" class="d-inline">
+                            <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Haqiqatan ham o‘chirib tashlamoqchimisiz?')">
@@ -68,7 +60,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="8" class="text-center">Hech qanday mahsulot topilmadi</td>
+                        <td colspan="3" class="text-center">Hech qanday kategoriya topilmadi</td>
                     </tr>
                 @endforelse
                 </tbody>

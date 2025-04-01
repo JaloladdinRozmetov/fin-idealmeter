@@ -26,6 +26,7 @@ class ProductRequest extends FormRequest
                 'product_name'  => 'required|string|max:255',
                 'type'          => 'required|string|max:255',
                 'producer'      => 'nullable|string|max:255',
+                'category_id' => 'required|exists:categories,id',
                 'barcode'       => [
                     'required',
                     'string',
@@ -37,6 +38,7 @@ class ProductRequest extends FormRequest
                 'product_name'  => 'required|string|max:255',
                 'type'          => 'required|string|max:255',
                 'producer'      => 'nullable|string|max:255',
+                'category_id' => 'required|exists:categories,id',
                 'barcode'       => [
                     'required',
                     'string',
