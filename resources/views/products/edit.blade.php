@@ -9,56 +9,49 @@
                         <i class="bi bi-pencil-square"></i> Mahsulotni Tahrirlash
                     </div>
                     <div class="card-body">
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul class="mb-0">
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
                         <form action="{{ route('product.update', $product->id) }}" method="POST">
                             @csrf
                             @method('PUT')
+
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Kategory:</label>
+                                <a href="{{ route('categories.create') }}" class="btn btn-success m-1">&#43;</a>
+                                <select name="category_id" class="form-control" required>
+                                    <option value="">Kategory tanlang</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="mb-3">
                                 <label for="product_name" class="form-label">Mahsulot Nomi</label>
-                                <input type="text" name="product_name" id="product_name" class="form-control @error('product_name') is-invalid @enderror"
-                                       value="{{ old('product_name', $product->product_name) }}" required>
-                                @error('product_name')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                                <input type="text" name="product_name" id="product_name" class="form-control" value="{{ $product->product_name }}" required>
                             </div>
+
                             <div class="mb-3">
                                 <label for="type" class="form-label">Turi</label>
-                                <input type="text" name="type" id="type" class="form-control @error('type') is-invalid @enderror"
-                                       value="{{ old('type', $product->type) }}" required>
-                                @error('type')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                                <input type="text" name="type" id="type" class="form-control" value="{{ $product->type }}" required>
                             </div>
+
                             <div class="mb-3">
                                 <label for="producer" class="form-label">Ishlab chiqaruvchi</label>
-                                <input type="text" name="producer" id="producer" class="form-control @error('producer') is-invalid @enderror"
-                                       value="{{ old('producer', $product->producer) }}" required>
-                                @error('producer')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                                <input type="text" name="producer" id="producer" class="form-control" value="{{ $product->producer }}" required>
                             </div>
+
                             <div class="mb-3">
                                 <label for="barcode" class="form-label">Shtrix Kod</label>
-                                <input type="text" name="barcode" id="barcode" class="form-control @error('barcode') is-invalid @enderror"
-                                       value="{{ old('barcode', $product->barcode) }}" required>
-                                @error('barcode')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                                <input type="text" name="barcode" id="barcode" class="form-control" value="{{ $product->barcode }}" required>
                             </div>
+
                             <div class="d-flex justify-content-between">
                                 <a href="{{ route('product.index') }}" class="btn btn-secondary">
                                     <i class="bi bi-arrow-left"></i> Orqaga
                                 </a>
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="bi bi-save"></i> Yangilash
+                                    <i class="bi bi-save"></i> Saqlash
                                 </button>
                             </div>
                         </form>

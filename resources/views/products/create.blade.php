@@ -12,6 +12,17 @@
                         <form action="{{ route('product.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
+                                <label class="form-label fw-bold">Kategory:</label>
+                                <a href="{{route('categories.create')}}" class="btn btn-success m-1">&#43;</a>
+                                <select name="product_id" class="form-control" required>
+                                    <option value="">Kategory tanlang</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="product_name" class="form-label">Mahsulot Nomi</label>
                                 <input type="text" name="product_name" id="product_name" class="form-control" required>
                             </div>

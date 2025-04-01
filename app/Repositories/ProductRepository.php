@@ -13,7 +13,7 @@ class ProductRepository
 
     public function find($id)
     {
-        return Product::query()->findOrFail($id);
+        return Product::query()->with('category')->findOrFail($id);
     }
 
     public function create(array $data)

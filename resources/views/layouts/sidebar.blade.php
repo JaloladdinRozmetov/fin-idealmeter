@@ -37,6 +37,12 @@
                 Foydalanuvchilar
             </a>
         </li>
+        <li>
+            <a href="{{ route('categories.index') }}" class="nav-link {{ Request::is('categories*') ? 'active' : '' }}">
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#gear"></use></svg>
+                Kategoriyalar
+            </a>
+        </li>
     </ul>
     <hr>
     <div class="dropdown"></div>
