@@ -56,6 +56,11 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="phone_number">Phone Number</label>
+                                <input type="text" name="phone_number" class="form-control" value="{{ old('phone_number') }}">
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="role" class="form-label">Rol</label>
                                 <select name="role" id="role" class="form-control @error('role') is-invalid @enderror" required>
                                     <option value="admin" {{ old('role', $user->role) == 'admin' ? 'selected' : '' }}>Admin</option>

@@ -88,7 +88,7 @@ Route::prefix('purchases')->middleware('auth')->name('purchases.')->group(functi
 });
 
 
-Route::prefix('users')->middleware('auth')->name('users.')->group(function () {
+Route::prefix('users')->middleware(['auth','role:admin'])->name('users.')->group(function () {
     Route::get('/', [UserController::class, 'index'])
         ->name('index');
     Route::get('/create', [UserController::class, 'create'])

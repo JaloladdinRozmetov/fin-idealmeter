@@ -50,8 +50,8 @@
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->phone ?? '-' }}</td>
-                        <td>{{ $user->role->name ?? 'Noma’lum' }}</td>
+                        <td>{{ $user->phone_number ?? '-' }}</td>
+                        <td>{{ $user->role ?? 'Noma’lum' }}</td>
                         <td>{{ $user->created_at->format('Y-m-d H:i') }}</td>
                         <td>
                             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning me-1">

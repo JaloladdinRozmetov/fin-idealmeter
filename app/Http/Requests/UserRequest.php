@@ -26,11 +26,15 @@ class UserRequest extends FormRequest
                 'name'     => 'required|string|max:255',
                 'email'    => ['required', 'email', 'max:255', Rule::unique('users', 'email')],
                 'password' => 'required|string|min:6|confirmed',
+                'phone_number' => 'nullable|string|max:15',
+                'role' => 'required|in:admin,user',
             ],
             'update' => [
                 'name'     => 'required|string|max:255',
                 'email'    => ['required', 'email', 'max:255', Rule::unique('users', 'email')->ignore($this->user)],
                 'password' => 'nullable|string|min:6|confirmed',
+                'phone_number' => 'nullable|string|max:15',
+                'role' => 'required|in:admin,user',
             ],
             'destroy' => [
                 'id' => 'required|integer|exists:users,id',

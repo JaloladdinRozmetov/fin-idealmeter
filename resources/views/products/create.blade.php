@@ -4,6 +4,17 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="bi bi-exclamation-triangle"></i> Iltimos, quyidagi xatolarni to'g'rilang:
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 <div class="card shadow-sm">
                     <div class="card-header bg-primary text-white">
                         <i class="bi bi-box-seam"></i> Yangi Mahsulot Qo'shish
@@ -14,7 +25,7 @@
                             <div class="mb-3">
                                 <label class="form-label fw-bold">Kategory:</label>
                                 <a href="{{route('categories.create')}}" class="btn btn-success m-1">&#43;</a>
-                                <select name="product_id" class="form-control" required>
+                                <select name="category_id" class="form-control" required>
                                     <option value="">Kategory tanlang</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>

@@ -31,12 +31,14 @@
             </a>
         </li>
 
-        <li>
-            <a href="{{ route('users.index') }}" class="nav-link {{ Request::is('users*') ? 'active' : '' }}">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#gear"></use></svg>
-                Foydalanuvchilar
-            </a>
-        </li>
+        @if(auth()->user()->role == 'admin')
+            <li>
+                <a href="{{ route('users.index') }}" class="nav-link {{ Request::is('users*') ? 'active' : '' }}">
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#gear"></use></svg>
+                    Foydalanuvchilar
+                </a>
+            </li>
+        @endif
         <li>
             <a href="{{ route('categories.index') }}" class="nav-link {{ Request::is('categories*') ? 'active' : '' }}">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#gear"></use></svg>

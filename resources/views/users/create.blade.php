@@ -52,17 +52,21 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-{{--                            <div class="mb-3">--}}
-{{--                                <label for="role" class="form-label">Rol</label>--}}
-{{--                                <select name="role" id="role" class="form-control @error('role') is-invalid @enderror" required>--}}
-{{--                                    <option value="">Rolni tanlang</option>--}}
-{{--                                    <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>--}}
-{{--                                    <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>--}}
-{{--                                </select>--}}
-{{--                                @error('role')--}}
-{{--                                <div class="invalid-feedback">{{ $message }}</div>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
+                            <div class="mb-3">
+                                <label for="phone_number">Phone Number</label>
+                                <input type="text" name="phone_number" class="form-control" value="{{ old('phone_number') }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="role" class="form-label">Rol</label>
+                                <select name="role" id="role" class="form-control @error('role') is-invalid @enderror" required>
+                                    <option value="">Rolni tanlang</option>
+                                    <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+                                    <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>
+                                </select>
+                                @error('role')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                             <div class="d-flex justify-content-between">
                                 <a href="{{ route('users.index') }}" class="btn btn-secondary">
                                     <i class="bi bi-arrow-left"></i> Orqaga
